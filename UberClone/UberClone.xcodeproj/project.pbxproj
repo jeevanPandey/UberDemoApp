@@ -12,6 +12,8 @@
 		09479309204E8FCB00A138D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09479307204E8FCB00A138D7 /* Main.storyboard */; };
 		0947930B204E8FCB00A138D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0947930A204E8FCB00A138D7 /* Assets.xcassets */; };
 		0947930E204E8FCB00A138D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947930C204E8FCB00A138D7 /* LaunchScreen.storyboard */; };
+		09479317204E978F00A138D7 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09479315204E978F00A138D7 /* SampleVC.swift */; };
+		09479318204E978F00A138D7 /* SampleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09479316204E978F00A138D7 /* SampleVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		0947930A204E8FCB00A138D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0947930D204E8FCB00A138D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0947930F204E8FCB00A138D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09479315204E978F00A138D7 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
+		09479316204E978F00A138D7 /* SampleVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleVC.xib; sourceTree = "<group>"; };
+		09479319204E982D00A138D7 /* UberClone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UberClone-Bridging-Header.h"; sourceTree = "<group>"; };
+		0947931A204E982D00A138D7 /* SampleExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleExtension.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,10 @@
 				0947930A204E8FCB00A138D7 /* Assets.xcassets */,
 				0947930C204E8FCB00A138D7 /* LaunchScreen.storyboard */,
 				0947930F204E8FCB00A138D7 /* Info.plist */,
+				09479315204E978F00A138D7 /* SampleVC.swift */,
+				09479316204E978F00A138D7 /* SampleVC.xib */,
+				0947931A204E982D00A138D7 /* SampleExtension.h */,
+				09479319204E982D00A138D7 /* UberClone-Bridging-Header.h */,
 			);
 			path = UberClone;
 			sourceTree = "<group>";
@@ -96,6 +106,7 @@
 				TargetAttributes = {
 					094792FF204E8FCA00A138D7 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09479318204E978F00A138D7 /* SampleVC.xib in Resources */,
 				0947930E204E8FCB00A138D7 /* LaunchScreen.storyboard in Resources */,
 				0947930B204E8FCB00A138D7 /* Assets.xcassets in Resources */,
 				09479309204E8FCB00A138D7 /* Main.storyboard in Resources */,
@@ -138,6 +150,7 @@
 			files = (
 				09479306204E8FCA00A138D7 /* ViewController.swift in Sources */,
 				09479304204E8FCA00A138D7 /* AppDelegate.swift in Sources */,
+				09479317204E978F00A138D7 /* SampleVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +287,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 44D3D8TY73;
 				INFOPLIST_FILE = UberClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Atlogys.UberClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UberClone/UberClone-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,12 +305,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 44D3D8TY73;
 				INFOPLIST_FILE = UberClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Atlogys.UberClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UberClone/UberClone-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
