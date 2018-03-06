@@ -16,7 +16,7 @@ extension SidePanelViewControllerDelegate where Self : ContainerViewController {
 
     func didSelectButton(buttonTag:Int) {
 
-        print("index of the item is \(buttonTag)")
+        print("index of the item : \(buttonTag)")
 
     }
 
