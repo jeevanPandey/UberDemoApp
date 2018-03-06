@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NavigationView" customModule="UberPool" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsM-xd-s4q" userLabel="NavigationView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vph-Jt-Lh3">
+                            <rect key="frame" x="10" y="5" width="355" height="70"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-hL-YBI">
+                                    <rect key="frame" x="0.0" y="23" width="30" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="EtB-2R-2r2"/>
+                                        <constraint firstAttribute="width" constant="30" id="GgC-13-89E"/>
+                                    </constraints>
+                                    <state key="normal" image="menuSliderBtn"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxh-fb-Rvq">
+                                    <rect key="frame" x="30" y="18" width="275" height="34.5"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Uber">
+                                            <attributes>
+                                                <font key="NSFont" size="25" name="AvenirNext-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="25"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Pool">
+                                            <attributes>
+                                                <color key="NSColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="25" name="AvenirNext-Italic"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Fjg-xk-zgK" customClass="RoundedImageView" customModule="UberPool" customModuleProvider="target">
+                                    <rect key="frame" x="305" y="10" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="MPa-lO-t4M"/>
+                                        <constraint firstAttribute="width" constant="50" id="azW-Fz-mLV"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Fjg-xk-zgK" firstAttribute="top" secondItem="vph-Jt-Lh3" secondAttribute="top" constant="10" id="Lsg-6D-Dwe"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vph-Jt-Lh3" firstAttribute="leading" secondItem="gsM-xd-s4q" secondAttribute="leading" constant="10" id="KL5-DC-Rcy"/>
+                        <constraint firstItem="vph-Jt-Lh3" firstAttribute="top" secondItem="gsM-xd-s4q" secondAttribute="top" constant="5" id="PcT-Q9-Iyk"/>
+                        <constraint firstAttribute="trailing" secondItem="vph-Jt-Lh3" secondAttribute="trailing" constant="10" id="hv3-ey-cHy"/>
+                        <constraint firstAttribute="height" constant="90" id="vVf-UR-FID"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="uWd-3H-Ihz"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gsM-xd-s4q" secondAttribute="bottom" id="2z1-sN-Pr1"/>
+                <constraint firstItem="gsM-xd-s4q" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="d1n-bS-MSb"/>
+                <constraint firstItem="gsM-xd-s4q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="g0U-RW-nBw"/>
+                <constraint firstItem="gsM-xd-s4q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rde-zu-kNM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="menuButton" destination="kRb-hL-YBI" id="l4k-cn-DGs"/>
+                <outlet property="userPick" destination="Fjg-xk-zgK" id="uFP-z8-uVF"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="menuSliderBtn" width="30" height="24"/>
+        <image name="sample-photo" width="320" height="320"/>
+    </resources>
+</document>

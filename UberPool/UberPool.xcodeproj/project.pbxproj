@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		090B47C5200CA2C90086E553 /* SharedLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B47C4200CA2C90086E553 /* SharedLocationManager.swift */; };
+		090E13B91FFF72C100906936 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090E13B81FFF72C100906936 /* AppConfig.swift */; };
+		0922B5E31FEB857E00707F0B /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922B5E21FEB857E00707F0B /* UserAnnotation.swift */; };
+		0922B5E51FEB90EE00707F0B /* DestinationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922B5E41FEB90EE00707F0B /* DestinationAnnotation.swift */; };
+		0922B5E71FEBC34A00707F0B /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922B5E61FEBC34A00707F0B /* MapViewExtension.swift */; };
+		0924F3CA1FCD343600CBD4E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924F3C91FCD343600CBD4E3 /* AppDelegate.swift */; };
+		0924F3CC1FCD343600CBD4E3 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */; };
+		0924F3D11FCD343700CBD4E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0924F3D01FCD343700CBD4E3 /* Assets.xcassets */; };
+		0924F3D41FCD343700CBD4E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0924F3D21FCD343700CBD4E3 /* LaunchScreen.storyboard */; };
+		0924F4391FCD3BB400CBD4E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0924F4381FCD3BB400CBD4E3 /* Main.storyboard */; };
+		092C4C5F1FD9163C00BC4B9F /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092C4C5E1FD9163C00BC4B9F /* DriverAnnotation.swift */; };
+		092D2C311FD50EDD00867448 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092D2C301FD50EDD00867448 /* DataService.swift */; };
+		0931385A1FE13073008B97C8 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093138591FE13073008B97C8 /* LocationSearchTable.swift */; };
+		0931385C1FE132B7008B97C8 /* LocationSearchTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0931385B1FE132B7008B97C8 /* LocationSearchTable.xib */; };
+		09439BA420033F27002EC032 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439BA320033F27002EC032 /* NavigationController.swift */; };
+		09439BA620033F61002EC032 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439BA520033F61002EC032 /* NavigationView.swift */; };
+		09439BA820033FA4002EC032 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09439BA720033FA4002EC032 /* NavigationView.xib */; };
+		09439BCC20034D57002EC032 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439BCB20034D57002EC032 /* SampleVC.swift */; };
+		09439BCF20034E5E002EC032 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439BCE20034E5E002EC032 /* MasterViewController.swift */; };
+		095F1D9A204E763800A8B626 /* ContainerVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F1D99204E763800A8B626 /* ContainerVCExtension.swift */; };
+		096C63071FF3800C001D10FC /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C63061FF3800C001D10FC /* Alertable.swift */; };
+		096D1DD11FD00DAA0016E9AD /* GTXVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D1DD01FD00DAA0016E9AD /* GTXVC.swift */; };
+		096D1DD31FD119600016E9AD /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D1DD21FD119600016E9AD /* RoundedImageView.swift */; };
+		096D1DD61FD137700016E9AD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D1DD51FD137700016E9AD /* LoginViewController.swift */; };
+		096D1DD81FD161470016E9AD /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D1DD71FD161470016E9AD /* ViewExtension.swift */; };
+		096D1DDA1FD16ED80016E9AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 096D1DD91FD16ED80016E9AD /* GoogleService-Info.plist */; };
+		0982D6101FFE35BB000E0110 /* HomeVCMapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0982D60F1FFE35BA000E0110 /* HomeVCMapExtension.swift */; };
+		09AC2405204E60C300B8D991 /* HomeVCTextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC2404204E60C300B8D991 /* HomeVCTextExtension.swift */; };
+		09AFF03A1FD80E13001A9F12 /* LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AFF0391FD80E13001A9F12 /* LocationServices.swift */; };
+		09B2D64D1FCE7BB800E9CD98 /* AnimatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D64C1FCE7BB800E9CD98 /* AnimatorButton.swift */; };
+		09B2D6551FCE974B00E9CD98 /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6501FCE974B00E9CD98 /* HomeViewControllerDelegate.swift */; };
+		09B2D6561FCE974B00E9CD98 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */; };
+		09B2D6571FCE974B00E9CD98 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6521FCE974B00E9CD98 /* SidePanelViewController.swift */; };
+		09B2D6581FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6531FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift */; };
+		09BB9FAE1FFCB69B00DB19EE /* DriverPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */; };
+		09CB129B1FCD7818009DC177 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */; };
+		09D3668C2007700A003C1CA0 /* StoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */; };
+		09E827AB204023C9000CB102 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E827AA204023C9000CB102 /* MapViewDelegate.swift */; };
+		A99E6E58E04AFEBD85E23C2C /* Pods_UberPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EEF6B515785C4E67B1997C /* Pods_UberPool.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		090B47C4200CA2C90086E553 /* SharedLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocationManager.swift; sourceTree = "<group>"; };
+		090E13B81FFF72C100906936 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		0922B5E21FEB857E00707F0B /* UserAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
+		0922B5E41FEB90EE00707F0B /* DestinationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationAnnotation.swift; sourceTree = "<group>"; };
+		0922B5E61FEBC34A00707F0B /* MapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
+		0924F3C61FCD343600CBD4E3 /* UberPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0924F3C91FCD343600CBD4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = ../HomeVC.swift; sourceTree = "<group>"; };
+		0924F3D01FCD343700CBD4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0924F3D31FCD343700CBD4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0924F3D51FCD343700CBD4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0924F4381FCD3BB400CBD4E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		092C4C5E1FD9163C00BC4B9F /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
+		092D2C301FD50EDD00867448 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		093138591FE13073008B97C8 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		0931385B1FE132B7008B97C8 /* LocationSearchTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSearchTable.xib; sourceTree = "<group>"; };
+		09439BA320033F27002EC032 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		09439BA520033F61002EC032 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		09439BA720033FA4002EC032 /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
+		09439BCB20034D57002EC032 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
+		09439BCE20034E5E002EC032 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		095F1D99204E763800A8B626 /* ContainerVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVCExtension.swift; sourceTree = "<group>"; };
+		096C63061FF3800C001D10FC /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		096D1DD01FD00DAA0016E9AD /* GTXVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTXVC.swift; sourceTree = "<group>"; };
+		096D1DD21FD119600016E9AD /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		096D1DD51FD137700016E9AD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		096D1DD71FD161470016E9AD /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		096D1DD91FD16ED80016E9AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0982D60F1FFE35BA000E0110 /* HomeVCMapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCMapExtension.swift; sourceTree = "<group>"; };
+		09AC2404204E60C300B8D991 /* HomeVCTextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCTextExtension.swift; sourceTree = "<group>"; };
+		09AFF0391FD80E13001A9F12 /* LocationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServices.swift; sourceTree = "<group>"; };
+		09B2D64C1FCE7BB800E9CD98 /* AnimatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatorButton.swift; sourceTree = "<group>"; };
+		09B2D6501FCE974B00E9CD98 /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
+		09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		09B2D6521FCE974B00E9CD98 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		09B2D6531FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewControllerDelegate.swift; sourceTree = "<group>"; };
+		09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverPickerVC.swift; sourceTree = "<group>"; };
+		09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
+		09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardExtension.swift; sourceTree = "<group>"; };
+		09E827AA204023C9000CB102 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		66EEF6B515785C4E67B1997C /* Pods_UberPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FA76348F00A51F817C057A /* Pods-UberPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberPool/Pods-UberPool.release.xcconfig"; sourceTree = "<group>"; };
+		FE69A9CBB551841699860EE3 /* Pods-UberPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UberPool/Pods-UberPool.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0924F3C31FCD343600CBD4E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99E6E58E04AFEBD85E23C2C /* Pods_UberPool.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0924F3BD1FCD343600CBD4E3 = {
+			isa = PBXGroup;
+			children = (
+				0924F3C81FCD343600CBD4E3 /* UberPool */,
+				0924F3C71FCD343600CBD4E3 /* Products */,
+				58572E8D869233B908E81E9A /* Pods */,
+				96E46FB02D900B18FC2673F8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0924F3C71FCD343600CBD4E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0924F3C61FCD343600CBD4E3 /* UberPool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0924F3C81FCD343600CBD4E3 /* UberPool */ = {
+			isa = PBXGroup;
+			children = (
+				092D2C2F1FD50E6900867448 /* Services */,
+				092C4C5D1FD9154B00BC4B9F /* Model */,
+				09B2D64E1FCE974B00E9CD98 /* Controllers */,
+				09CB12991FCD77F1009DC177 /* View */,
+				0924F4381FCD3BB400CBD4E3 /* Main.storyboard */,
+				0924F3C91FCD343600CBD4E3 /* AppDelegate.swift */,
+				0924F3D01FCD343700CBD4E3 /* Assets.xcassets */,
+				0924F3D21FCD343700CBD4E3 /* LaunchScreen.storyboard */,
+				096D1DD91FD16ED80016E9AD /* GoogleService-Info.plist */,
+				0924F3D51FCD343700CBD4E3 /* Info.plist */,
+				09E827AA204023C9000CB102 /* MapViewDelegate.swift */,
+			);
+			path = UberPool;
+			sourceTree = "<group>";
+		};
+		092C4C5D1FD9154B00BC4B9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				092C4C5E1FD9163C00BC4B9F /* DriverAnnotation.swift */,
+				0922B5E41FEB90EE00707F0B /* DestinationAnnotation.swift */,
+				0922B5E21FEB857E00707F0B /* UserAnnotation.swift */,
+				090E13B81FFF72C100906936 /* AppConfig.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		092D2C2F1FD50E6900867448 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				092D2C301FD50EDD00867448 /* DataService.swift */,
+				090B47C4200CA2C90086E553 /* SharedLocationManager.swift */,
+				09AFF0391FD80E13001A9F12 /* LocationServices.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		09439BCD20034E02002EC032 /* CustomNav */ = {
+			isa = PBXGroup;
+			children = (
+				09439BA320033F27002EC032 /* NavigationController.swift */,
+				09439BCB20034D57002EC032 /* SampleVC.swift */,
+				09439BCE20034E5E002EC032 /* MasterViewController.swift */,
+			);
+			name = CustomNav;
+			sourceTree = "<group>";
+		};
+		096D1DD41FD1373E0016E9AD /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */,
+				096D1DD51FD137700016E9AD /* LoginViewController.swift */,
+			);
+			name = LoginController;
+			sourceTree = "<group>";
+		};
+		09B2D64E1FCE974B00E9CD98 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				096D1DD41FD1373E0016E9AD /* LoginController */,
+				0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */,
+				09AC2404204E60C300B8D991 /* HomeVCTextExtension.swift */,
+				0982D60F1FFE35BA000E0110 /* HomeVCMapExtension.swift */,
+				09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */,
+				09B2D6501FCE974B00E9CD98 /* HomeViewControllerDelegate.swift */,
+				09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */,
+				095F1D99204E763800A8B626 /* ContainerVCExtension.swift */,
+				09B2D6521FCE974B00E9CD98 /* SidePanelViewController.swift */,
+				09B2D6531FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift */,
+				096D1DD01FD00DAA0016E9AD /* GTXVC.swift */,
+				09439BCD20034E02002EC032 /* CustomNav */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		09CB12991FCD77F1009DC177 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09439BA720033FA4002EC032 /* NavigationView.xib */,
+				09439BA520033F61002EC032 /* NavigationView.swift */,
+				09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */,
+				09B2D64C1FCE7BB800E9CD98 /* AnimatorButton.swift */,
+				096D1DD21FD119600016E9AD /* RoundedImageView.swift */,
+				096D1DD71FD161470016E9AD /* ViewExtension.swift */,
+				093138591FE13073008B97C8 /* LocationSearchTable.swift */,
+				0931385B1FE132B7008B97C8 /* LocationSearchTable.xib */,
+				0922B5E61FEBC34A00707F0B /* MapViewExtension.swift */,
+				096C63061FF3800C001D10FC /* Alertable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		58572E8D869233B908E81E9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE69A9CBB551841699860EE3 /* Pods-UberPool.debug.xcconfig */,
+				C9FA76348F00A51F817C057A /* Pods-UberPool.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		96E46FB02D900B18FC2673F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66EEF6B515785C4E67B1997C /* Pods_UberPool.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0924F3C51FCD343600CBD4E3 /* UberPool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0924F3D81FCD343700CBD4E3 /* Build configuration list for PBXNativeTarget "UberPool" */;
+			buildPhases = (
+				194581E17ABCE62AE40F15D1 /* [CP] Check Pods Manifest.lock */,
+				0924F3C21FCD343600CBD4E3 /* Sources */,
+				0924F3C31FCD343600CBD4E3 /* Frameworks */,
+				0924F3C41FCD343600CBD4E3 /* Resources */,
+				AD1EB2334C2E23150B5F2F98 /* [CP] Embed Pods Frameworks */,
+				3BE5842E22730E60EB0E8869 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UberPool;
+			productName = UberPool;
+			productReference = 0924F3C61FCD343600CBD4E3 /* UberPool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0924F3BE1FCD343600CBD4E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Jeevan;
+				TargetAttributes = {
+					0924F3C51FCD343600CBD4E3 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 44D3D8TY73;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0924F3C11FCD343600CBD4E3 /* Build configuration list for PBXProject "UberPool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0924F3BD1FCD343600CBD4E3;
+			productRefGroup = 0924F3C71FCD343600CBD4E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0924F3C51FCD343600CBD4E3 /* UberPool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0924F3C41FCD343600CBD4E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0931385C1FE132B7008B97C8 /* LocationSearchTable.xib in Resources */,
+				0924F4391FCD3BB400CBD4E3 /* Main.storyboard in Resources */,
+				09439BA820033FA4002EC032 /* NavigationView.xib in Resources */,
+				096D1DDA1FD16ED80016E9AD /* GoogleService-Info.plist in Resources */,
+				0924F3D41FCD343700CBD4E3 /* LaunchScreen.storyboard in Resources */,
+				0924F3D11FCD343700CBD4E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		194581E17ABCE62AE40F15D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UberPool-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BE5842E22730E60EB0E8869 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UberPool/Pods-UberPool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD1EB2334C2E23150B5F2F98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UberPool/Pods-UberPool-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UberPool/Pods-UberPool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0924F3C21FCD343600CBD4E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0982D6101FFE35BB000E0110 /* HomeVCMapExtension.swift in Sources */,
+				09439BA420033F27002EC032 /* NavigationController.swift in Sources */,
+				0924F3CC1FCD343600CBD4E3 /* HomeVC.swift in Sources */,
+				092D2C311FD50EDD00867448 /* DataService.swift in Sources */,
+				09439BCC20034D57002EC032 /* SampleVC.swift in Sources */,
+				09AFF03A1FD80E13001A9F12 /* LocationServices.swift in Sources */,
+				09E827AB204023C9000CB102 /* MapViewDelegate.swift in Sources */,
+				0924F3CA1FCD343600CBD4E3 /* AppDelegate.swift in Sources */,
+				092C4C5F1FD9163C00BC4B9F /* DriverAnnotation.swift in Sources */,
+				09B2D6561FCE974B00E9CD98 /* ContainerViewController.swift in Sources */,
+				0922B5E31FEB857E00707F0B /* UserAnnotation.swift in Sources */,
+				09B2D6581FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift in Sources */,
+				090E13B91FFF72C100906936 /* AppConfig.swift in Sources */,
+				09B2D6551FCE974B00E9CD98 /* HomeViewControllerDelegate.swift in Sources */,
+				095F1D9A204E763800A8B626 /* ContainerVCExtension.swift in Sources */,
+				09B2D6571FCE974B00E9CD98 /* SidePanelViewController.swift in Sources */,
+				096D1DD81FD161470016E9AD /* ViewExtension.swift in Sources */,
+				096D1DD31FD119600016E9AD /* RoundedImageView.swift in Sources */,
+				0931385A1FE13073008B97C8 /* LocationSearchTable.swift in Sources */,
+				0922B5E71FEBC34A00707F0B /* MapViewExtension.swift in Sources */,
+				096C63071FF3800C001D10FC /* Alertable.swift in Sources */,
+				096D1DD11FD00DAA0016E9AD /* GTXVC.swift in Sources */,
+				09BB9FAE1FFCB69B00DB19EE /* DriverPickerVC.swift in Sources */,
+				09B2D64D1FCE7BB800E9CD98 /* AnimatorButton.swift in Sources */,
+				09D3668C2007700A003C1CA0 /* StoryBoardExtension.swift in Sources */,
+				09CB129B1FCD7818009DC177 /* RoundedShadowView.swift in Sources */,
+				09439BCF20034E5E002EC032 /* MasterViewController.swift in Sources */,
+				090B47C5200CA2C90086E553 /* SharedLocationManager.swift in Sources */,
+				09439BA620033F61002EC032 /* NavigationView.swift in Sources */,
+				096D1DD61FD137700016E9AD /* LoginViewController.swift in Sources */,
+				0922B5E51FEB90EE00707F0B /* DestinationAnnotation.swift in Sources */,
+				09AC2405204E60C300B8D991 /* HomeVCTextExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0924F3D21FCD343700CBD4E3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0924F3D31FCD343700CBD4E3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0924F3D61FCD343700CBD4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0924F3D71FCD343700CBD4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0924F3D91FCD343700CBD4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE69A9CBB551841699860EE3 /* Pods-UberPool.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44D3D8TY73;
+				INFOPLIST_FILE = UberPool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Atlogys.UberPool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0924F3DA1FCD343700CBD4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9FA76348F00A51F817C057A /* Pods-UberPool.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44D3D8TY73;
+				INFOPLIST_FILE = UberPool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Atlogys.UberPool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0924F3C11FCD343600CBD4E3 /* Build configuration list for PBXProject "UberPool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0924F3D61FCD343700CBD4E3 /* Debug */,
+				0924F3D71FCD343700CBD4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0924F3D81FCD343700CBD4E3 /* Build configuration list for PBXNativeTarget "UberPool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0924F3D91FCD343700CBD4E3 /* Debug */,
+				0924F3DA1FCD343700CBD4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0924F3BE1FCD343600CBD4E3 /* Project object */;
+}

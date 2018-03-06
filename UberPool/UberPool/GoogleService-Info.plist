@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>492293266205-ke0h8p0cf01nu14kvmmgto6tknjr9qv5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.492293266205-ke0h8p0cf01nu14kvmmgto6tknjr9qv5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCxegjFsilwL5KMu1z7U2FoclIsG_HgZcw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>492293266205</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Atlogys.UberPool</string>
+	<key>PROJECT_ID</key>
+	<string>uber-pool</string>
+	<key>STORAGE_BUCKET</key>
+	<string>uber-pool.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:492293266205:ios:ba2fc1168d692d48</string>
+	<key>DATABASE_URL</key>
+	<string>https://uber-pool.firebaseio.com</string>
+</dict>
+</plist>
