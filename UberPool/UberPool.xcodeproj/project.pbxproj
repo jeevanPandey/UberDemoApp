@@ -26,7 +26,7 @@
 		09439BA820033FA4002EC032 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09439BA720033FA4002EC032 /* NavigationView.xib */; };
 		09439BCC20034D57002EC032 /* SampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439BCB20034D57002EC032 /* SampleVC.swift */; };
 		09439BCF20034E5E002EC032 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439BCE20034E5E002EC032 /* MasterViewController.swift */; };
-		095F1D9A204E763800A8B626 /* ContainerVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F1D99204E763800A8B626 /* ContainerVCExtension.swift */; };
+		095F1D9A204E763800A8B626 /* ContainerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F1D99204E763800A8B626 /* ContainerAnimator.swift */; };
 		096C63071FF3800C001D10FC /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C63061FF3800C001D10FC /* Alertable.swift */; };
 		096D1DD11FD00DAA0016E9AD /* GTXVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D1DD01FD00DAA0016E9AD /* GTXVC.swift */; };
 		096D1DD31FD119600016E9AD /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D1DD21FD119600016E9AD /* RoundedImageView.swift */; };
@@ -70,7 +70,7 @@
 		09439BA720033FA4002EC032 /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		09439BCB20034D57002EC032 /* SampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleVC.swift; sourceTree = "<group>"; };
 		09439BCE20034E5E002EC032 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		095F1D99204E763800A8B626 /* ContainerVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVCExtension.swift; sourceTree = "<group>"; };
+		095F1D99204E763800A8B626 /* ContainerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerAnimator.swift; sourceTree = "<group>"; };
 		096C63061FF3800C001D10FC /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		096D1DD01FD00DAA0016E9AD /* GTXVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTXVC.swift; sourceTree = "<group>"; };
 		096D1DD21FD119600016E9AD /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 				09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */,
 				09B2D6501FCE974B00E9CD98 /* HomeViewControllerDelegate.swift */,
 				09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */,
-				095F1D99204E763800A8B626 /* ContainerVCExtension.swift */,
+				095F1D99204E763800A8B626 /* ContainerAnimator.swift */,
 				09B2D6521FCE974B00E9CD98 /* SidePanelViewController.swift */,
 				09B2D6531FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift */,
 				096D1DD01FD00DAA0016E9AD /* GTXVC.swift */,
@@ -390,7 +390,7 @@
 				09B2D6581FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift in Sources */,
 				090E13B91FFF72C100906936 /* AppConfig.swift in Sources */,
 				09B2D6551FCE974B00E9CD98 /* HomeViewControllerDelegate.swift in Sources */,
-				095F1D9A204E763800A8B626 /* ContainerVCExtension.swift in Sources */,
+				095F1D9A204E763800A8B626 /* ContainerAnimator.swift in Sources */,
 				09B2D6571FCE974B00E9CD98 /* SidePanelViewController.swift in Sources */,
 				096D1DD81FD161470016E9AD /* ViewExtension.swift in Sources */,
 				096D1DD31FD119600016E9AD /* RoundedImageView.swift in Sources */,
