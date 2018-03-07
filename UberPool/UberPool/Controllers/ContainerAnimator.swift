@@ -70,14 +70,14 @@ extension ContainerViewController: HomeViewControllerDelegate {
                         if isCollapseed {
                             let initalFrame = CGRect(x: 0, y: 0, width: self.leftMenuOffset, height:(self.leftViewController?.view.frame.size.height)!)
                             self.leftViewController?.view.frame = initalFrame
-                            self.navigationView?.menuButton.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
+                            self.navigationView?.menuButton.transform = CGAffineTransform(rotationAngle:CGFloat(Double.pi/2))
 
                         }
                         else {
 
                             let initalFrame = CGRect(x: -self.leftMenuOffset, y: 0, width: self.leftMenuOffset, height:self.leftViewController!.view.frame.size.height)
                             self.leftViewController?.view.frame = initalFrame
-                            self.navigationView?.menuButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+                            self.navigationView?.menuButton.transform = CGAffineTransform.identity
 
                         }
         }, completion:{finished in
