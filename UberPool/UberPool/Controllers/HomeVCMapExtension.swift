@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-extension HomeVC:MKMapViewDelegate {
+extension HomeVC:MKMapViewDelegate,CAAnimationDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         LocationService.instance.observerLocationValueForUser(withCoordinate: userLocation.coordinate)
@@ -21,10 +21,10 @@ extension HomeVC:MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+        var annotationView:MKAnnotationView?
         if (annotation is DriverAnnotation) {
             
-            var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "driverAnnoation")
+             annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "driverAnnoation")
             if annotationView == nil{
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "driverAnnoation")
                 annotationView?.canShowCallout = false
@@ -33,13 +33,13 @@ extension HomeVC:MKMapViewDelegate {
             }
             annotationView?.image = #imageLiteral(resourceName: "driverAnnotation")
             
-            return annotationView
+           // return annotationView
             
         }
             
         else if (annotation is UserAnnotation) {
             
-            var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "userAnnoation")
+             annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "userAnnoation")
             if annotationView == nil{
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userAnnoation")
                 annotationView?.canShowCallout = false
@@ -48,13 +48,13 @@ extension HomeVC:MKMapViewDelegate {
             }
             annotationView?.image = #imageLiteral(resourceName: "currentLocationAnnotation")
             
-            return annotationView
+           // return annotationView
             
         }
             
         else if (annotation is DestinationAnnotation) {
             
-            var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "destination")
+             annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "destination")
             if annotationView == nil{
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "destination")
                 annotationView?.canShowCallout = false
@@ -63,13 +63,17 @@ extension HomeVC:MKMapViewDelegate {
             }
             annotationView?.image = #imageLiteral(resourceName: "destinationAnnotation")
             
-            return annotationView
+           // return annotationView
             
         }
-        return nil
+        if let annView = annotationView {
+
+            annView.setupViewForRippleEffect()
+
+        }
+        return annotationView
     }
-
-
+   
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
         renderer.lineWidth = 4.0
@@ -77,6 +81,15 @@ extension HomeVC:MKMapViewDelegate {
         renderer.strokeColor = UIColor.blue
         renderer.miterLimit = 5.0
         return renderer
+    }
+
+    func animationDidStart(_ anim: CAAnimation) {
+
+        print("start animation")
+    }
+
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        print("stop animation")
     }
 
 }

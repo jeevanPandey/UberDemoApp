@@ -47,4 +47,49 @@ extension UIView {
         self.endEditing(true)
     }
 
+    func setupViewForRippleEffect() {
+
+        let layer = CAShapeLayer()
+        layer.fillColor = UIColor(red: 175/255, green: 193/255, blue: 224/255, alpha: 1.0).cgColor
+        let center = CGPoint(x: self.bounds.midX, y:self.bounds.midY)
+        let startPath = UIBezierPath(arcCenter: center, radius: 0,
+                                     startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)
+
+        let endPath = UIBezierPath(arcCenter: center, radius: 50,
+                                   startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.timingFunction =  CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.duration = 2
+        animation.repeatCount = Float.infinity
+        animation.fromValue = startPath.cgPath
+        animation.toValue = endPath.cgPath
+        self.layer.insertSublayer(layer, at: 0)
+        layer.add(animation, forKey: nil)
+    }
+
+
+    func rotationAnnotationView() {
+
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveLinear, animations: {
+            self.transform = self.transform.rotated(by: CGFloat(Double.pi))
+        }) { finished in
+            self.rotationAnnotationView()
+            // self.rotateView(view: targetView, duration: 1.0)
+        }
+    }
+
+    func addBounceAnimationToView()
+    {
+        let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale") as CAKeyframeAnimation
+        bounceAnimation.values = [ 0.05, 1.1, 0.9, 1]
+        let timingFunctions = NSMutableArray(capacity: bounceAnimation.values!.count)
+        for _ in bounceAnimation.values! {
+            timingFunctions.add(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+        }
+        bounceAnimation.timingFunctions = timingFunctions as NSArray as? [CAMediaTimingFunction]
+        bounceAnimation.isRemovedOnCompletion = false
+        self.layer.add(bounceAnimation, forKey: "bounce")
+    }
+
+
 }

@@ -58,27 +58,22 @@ extension ContainerViewController: HomeViewControllerDelegate {
 
     func animateXPostion(targetPostion:CGFloat,isCollapseed:Bool) {
 
-        UIView.animate(withDuration: 1.5,
+        UIView.animate(withDuration: 1.0,
                        delay: 0,
-                       usingSpringWithDamping: 0.8,
+                       usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0,
                        options: .curveEaseInOut, animations: {
                         self.currentViewController.view.frame.origin = CGPoint(x: targetPostion, y: 0)
                         self.navigationView?.frame.origin = CGPoint(x: targetPostion, y: 0)
-
-
                         if isCollapseed {
                             let initalFrame = CGRect(x: 0, y: 0, width: self.leftMenuOffset, height:(self.leftViewController?.view.frame.size.height)!)
                             self.leftViewController?.view.frame = initalFrame
                             self.navigationView?.menuButton.transform = CGAffineTransform(rotationAngle:CGFloat(Double.pi/2))
-
                         }
                         else {
-
                             let initalFrame = CGRect(x: -self.leftMenuOffset, y: 0, width: self.leftMenuOffset, height:self.leftViewController!.view.frame.size.height)
                             self.leftViewController?.view.frame = initalFrame
                             self.navigationView?.menuButton.transform = CGAffineTransform.identity
-
                         }
         }, completion:{finished in
 
