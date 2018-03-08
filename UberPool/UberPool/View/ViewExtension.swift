@@ -47,24 +47,42 @@ extension UIView {
         self.endEditing(true)
     }
 
-    func setupViewForRippleEffect() {
+    private func setupViewForTimer(_ beginTime: Double) {
 
         let layer = CAShapeLayer()
-        layer.fillColor = UIColor(red: 175/255, green: 193/255, blue: 224/255, alpha: 1.0).cgColor
+        layer.fillColor = UIColor(red: 84/255, green: 122/255, blue: 183/255, alpha: 1.0).cgColor
+        layer.strokeColor = UIColor.clear.cgColor
         let center = CGPoint(x: self.bounds.midX, y:self.bounds.midY)
-        let startPath = UIBezierPath(arcCenter: center, radius: 0,
+        let startPath = UIBezierPath(arcCenter: center, radius: 2,
                                      startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)
 
         let endPath = UIBezierPath(arcCenter: center, radius: 50,
                                    startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)
+        layer.path = startPath.cgPath
+        self.layer.insertSublayer(layer, at: 0)
+
         let animation = CABasicAnimation(keyPath: "path")
         animation.timingFunction =  CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.duration = 2
-        animation.repeatCount = Float.infinity
+
         animation.fromValue = startPath.cgPath
         animation.toValue = endPath.cgPath
-        self.layer.insertSublayer(layer, at: 0)
-        layer.add(animation, forKey: nil)
+
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeAnimation.fromValue = 0.8
+        fadeAnimation.toValue = 0.0
+
+        let animationGroup = CAAnimationGroup()
+        animationGroup.beginTime = beginTime
+        animationGroup.animations = [animation, fadeAnimation]
+        animationGroup.duration = 5
+        animationGroup.repeatCount = Float.infinity
+        layer.add(animationGroup, forKey: nil)
+    }
+
+    func animateAnnotationView() {
+        setupViewForTimer(0)
+        setupViewForTimer(2)
+        setupViewForTimer(3)
     }
 
 

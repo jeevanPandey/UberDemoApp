@@ -68,13 +68,15 @@ extension HomeVC:MKMapViewDelegate,CAAnimationDelegate {
         }
         if let annView = annotationView {
 
-            let fillColor = UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1)
+           /* let fillColor = UIColor(red: 33/255, green: 150/255, blue: 243/255, alpha: 1)
             let frame = CGRect(x: annView.bounds.midX-annView.bounds.size.width/2,
                                y: annView.bounds.midY-annView.bounds.size.height/2,
                                width: 50, height: 50)
             let parentFrameover = CGRect(x: 0, y: 0, width: 200 ,height: 200)
             let rippleView = SMRippleView(frame: frame, rippleColor: UIColor.clear, rippleThickness: 0.02, rippleTimer: 3.0, fillColor: fillColor, animationDuration: 5.0, parentFrame: parentFrameover)
-            annView.addSubview(rippleView)
+            annView.addSubview(rippleView) */
+
+            annView.animateAnnotationView()
         }
         return annotationView
     }
