@@ -178,16 +178,20 @@ class HomeVC: UIViewController {
         })
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
         destinationText.resignFirstResponder()
-       if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-        let collapsed = appDelegate.containerViewController.currentState
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let collapsed = appDelegate.containerViewController.currentState
             if collapsed != .bothCollapsed {
-                
-              delegate?.toggleLeftPanel?()
+
+                delegate?.toggleLeftPanel?()
             }
         }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+
     }
 }
 
