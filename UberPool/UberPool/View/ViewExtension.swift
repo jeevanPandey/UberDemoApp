@@ -98,15 +98,26 @@ extension UIView {
 
     func addBounceAnimationToView()
     {
-        let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale") as CAKeyframeAnimation
-        bounceAnimation.values = [ 0.05, 1.1, 0.9, 1]
+       /* let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale") as CAKeyframeAnimation
+        bounceAnimation.values = [ 0.5, 1.1, 0.9, 1]
         let timingFunctions = NSMutableArray(capacity: bounceAnimation.values!.count)
         for _ in bounceAnimation.values! {
-            timingFunctions.add(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+            timingFunctions.add(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         }
         bounceAnimation.timingFunctions = timingFunctions as NSArray as? [CAMediaTimingFunction]
-        bounceAnimation.isRemovedOnCompletion = false
-        self.layer.add(bounceAnimation, forKey: "bounce")
+        bounceAnimation.isRemovedOnCompletion = true
+        bounceAnimation.repeatCount = Float.infinity
+        self.layer.add(bounceAnimation, forKey: "bounce") */
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0,self.superview!.frame.width-self.frame.width,0]
+        animation.keyTimes = [0, 0.5, 1]
+        animation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)]
+        animation.duration = 2
+        animation.repeatCount = Float.infinity
+        animation.isAdditive = true
+
+        self.layer.add(animation, forKey: "move")
     }
 
 

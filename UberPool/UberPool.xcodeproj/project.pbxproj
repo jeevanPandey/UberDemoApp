@@ -45,6 +45,8 @@
 		09BB9FAE1FFCB69B00DB19EE /* DriverPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */; };
 		09CB129B1FCD7818009DC177 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */; };
 		09D3668C2007700A003C1CA0 /* StoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */; };
+		09DE6FCB205158AF00B235D6 /* MenuWaitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE6FCA205158AF00B235D6 /* MenuWaitScreen.swift */; };
+		09DE6FCD205158D700B235D6 /* MenuWaitScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DE6FCC205158D700B235D6 /* MenuWaitScreen.xib */; };
 		09E827AB204023C9000CB102 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E827AA204023C9000CB102 /* MapViewDelegate.swift */; };
 		A99E6E58E04AFEBD85E23C2C /* Pods_UberPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EEF6B515785C4E67B1997C /* Pods_UberPool.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,8 @@
 		09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverPickerVC.swift; sourceTree = "<group>"; };
 		09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardExtension.swift; sourceTree = "<group>"; };
+		09DE6FCA205158AF00B235D6 /* MenuWaitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWaitScreen.swift; sourceTree = "<group>"; };
+		09DE6FCC205158D700B235D6 /* MenuWaitScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuWaitScreen.xib; sourceTree = "<group>"; };
 		09E827AA204023C9000CB102 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		66EEF6B515785C4E67B1997C /* Pods_UberPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FA76348F00A51F817C057A /* Pods-UberPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberPool/Pods-UberPool.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 		09CB12991FCD77F1009DC177 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				09DE6FCC205158D700B235D6 /* MenuWaitScreen.xib */,
+				09DE6FCA205158AF00B235D6 /* MenuWaitScreen.swift */,
 				09439BA720033FA4002EC032 /* NavigationView.xib */,
 				09439BA520033F61002EC032 /* NavigationView.swift */,
 				09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */,
@@ -306,6 +312,7 @@
 				09439BA820033FA4002EC032 /* NavigationView.xib in Resources */,
 				096D1DDA1FD16ED80016E9AD /* GoogleService-Info.plist in Resources */,
 				0924F3D41FCD343700CBD4E3 /* LaunchScreen.storyboard in Resources */,
+				09DE6FCD205158D700B235D6 /* MenuWaitScreen.xib in Resources */,
 				0924F3D11FCD343700CBD4E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +407,7 @@
 				096D1DD31FD119600016E9AD /* RoundedImageView.swift in Sources */,
 				0931385A1FE13073008B97C8 /* LocationSearchTable.swift in Sources */,
 				0922B5E71FEBC34A00707F0B /* MapViewExtension.swift in Sources */,
+				09DE6FCB205158AF00B235D6 /* MenuWaitScreen.swift in Sources */,
 				096C63071FF3800C001D10FC /* Alertable.swift in Sources */,
 				096D1DD11FD00DAA0016E9AD /* GTXVC.swift in Sources */,
 				09BB9FAE1FFCB69B00DB19EE /* DriverPickerVC.swift in Sources */,
