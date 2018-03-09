@@ -16,6 +16,7 @@ final class AppConfig {
     var isPickModeEnabled = false
     var userEmail:String?
     var userID:String?
+    let APIKEY =  "AIzaSyCxegjFsilwL5KMu1z7U2FoclIsG_HgZcw"
     
     private init() {}
     

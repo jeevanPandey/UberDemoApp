@@ -7,7 +7,10 @@ target 'UberPool' do
  pod 'Firebase/Core'
  pod 'Firebase/Auth'
 pod 'FirebaseDatabase'
+pod 'GoogleMaps'
 pod 'RevealingSplashView'
+pod 'SwiftyJSON'
+
 
   # Pods for UberPool
 

@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseCore
+import GoogleMaps
+
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var window: UIWindow?
+     var window: UIWindow?
      let containerViewController = ContainerViewController()
      func application(_ application: UIApplication, didFinishLaunchingWithOptions
         
@@ -24,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = containerViewController
 
         window!.makeKeyAndVisible()
+        GMSServices.provideAPIKey(AppConfig.sharedInstance.APIKEY)
         
         return true
     }

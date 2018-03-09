@@ -218,7 +218,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJu-HP-yPI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-wL-VbG" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJu-HP-yPI">
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVM-6R-MG6" userLabel="ButtonView">
@@ -355,18 +359,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mk3-Sa-mZb" firstAttribute="top" secondItem="7FI-uM-dUx" secondAttribute="top" constant="85" id="017-8h-kSm"/>
+                            <constraint firstAttribute="trailing" secondItem="KQN-wL-VbG" secondAttribute="trailing" id="AHN-3l-S56"/>
                             <constraint firstItem="mk3-Sa-mZb" firstAttribute="leading" secondItem="7FI-uM-dUx" secondAttribute="leading" constant="10" id="EnL-D2-nVw"/>
                             <constraint firstItem="eJu-HP-yPI" firstAttribute="leading" secondItem="7FI-uM-dUx" secondAttribute="leading" id="FJk-PN-UJ0"/>
                             <constraint firstAttribute="bottom" secondItem="mVM-6R-MG6" secondAttribute="bottom" constant="10" id="H27-tA-Yiz"/>
                             <constraint firstItem="uyC-aH-LZY" firstAttribute="centerX" secondItem="7FI-uM-dUx" secondAttribute="centerX" id="JF4-iS-CCf"/>
                             <constraint firstAttribute="trailing" secondItem="mVM-6R-MG6" secondAttribute="trailing" constant="5" id="Kzt-gX-lBK"/>
+                            <constraint firstItem="KQN-wL-VbG" firstAttribute="leading" secondItem="7FI-uM-dUx" secondAttribute="leading" id="MID-Tu-B2e"/>
                             <constraint firstItem="ami-E3-HC7" firstAttribute="top" secondItem="eJu-HP-yPI" secondAttribute="bottom" id="MqV-MP-bZU"/>
                             <constraint firstItem="eJu-HP-yPI" firstAttribute="top" secondItem="7FI-uM-dUx" secondAttribute="top" constant="90" id="ROz-0g-ExS"/>
                             <constraint firstAttribute="trailing" secondItem="eJu-HP-yPI" secondAttribute="trailing" id="ZnW-Hk-toR"/>
                             <constraint firstItem="mVM-6R-MG6" firstAttribute="leading" secondItem="7FI-uM-dUx" secondAttribute="leading" constant="5" id="avG-GJ-1XU"/>
+                            <constraint firstItem="KQN-wL-VbG" firstAttribute="top" secondItem="7FI-uM-dUx" secondAttribute="top" constant="90" id="cPF-XS-gKU"/>
                             <constraint firstItem="mVM-6R-MG6" firstAttribute="top" secondItem="r0X-Ue-WmR" secondAttribute="bottom" constant="10" id="f9y-T2-erK"/>
                             <constraint firstItem="eJu-HP-yPI" firstAttribute="centerX" secondItem="7FI-uM-dUx" secondAttribute="centerX" id="fVn-K1-ewk"/>
                             <constraint firstAttribute="trailing" secondItem="mk3-Sa-mZb" secondAttribute="trailing" constant="10" id="mhQ-Bj-ilS"/>
+                            <constraint firstItem="ami-E3-HC7" firstAttribute="top" secondItem="KQN-wL-VbG" secondAttribute="bottom" id="oKb-gC-LSb"/>
                             <constraint firstAttribute="trailing" secondItem="r0X-Ue-WmR" secondAttribute="trailing" constant="16" id="raO-EJ-Q0j"/>
                             <constraint firstItem="mVM-6R-MG6" firstAttribute="top" secondItem="uyC-aH-LZY" secondAttribute="bottom" constant="15" id="s29-a9-aUj"/>
                         </constraints>
@@ -377,6 +385,7 @@
                         <outlet property="ButtonView" destination="mVM-6R-MG6" id="ie1-PQ-IJ6"/>
                         <outlet property="destinationText" destination="OG7-wN-uLh" id="T45-yj-jDb"/>
                         <outlet property="fareEstimateButton" destination="zvv-5p-uR8" id="jmD-Ne-O9z"/>
+                        <outlet property="googleMap" destination="KQN-wL-VbG" id="8BO-5K-vIp"/>
                         <outlet property="mapView" destination="eJu-HP-yPI" id="r6x-iG-sDM"/>
                         <outlet property="rideButton" destination="Rk1-4A-eVD" id="4DF-jR-3yT"/>
                         <outlet property="rideCancelBtn" destination="uyC-aH-LZY" id="f4U-Bz-ebx"/>

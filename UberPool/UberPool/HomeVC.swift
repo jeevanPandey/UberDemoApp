@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import RevealingSplashView
 import Firebase
+import GoogleMaps
 
 
 class HomeVC: UIViewController {
@@ -32,6 +33,13 @@ class HomeVC: UIViewController {
     var anchor:NSLayoutConstraint!
     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     var isTripAcceptted = false
+
+    @IBOutlet var googleMap: GMSMapView!
+    let dataProvider = GoogleDataProvider()
+    let searchRadius: Double = 1000
+    var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
+
+
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -43,10 +51,11 @@ class HomeVC: UIViewController {
         
         initialViewSetup()
         checkLocationAuthorizationStatus()
-        self.updatePathsAndAnnotations()
-        centerMapOnLocation(location: initialLocation)
+       // self.updatePathsAndAnnotations()
+       // centerMapOnLocation(location: initialLocation)
         destinationText.delegate = self
         startPointText.delegate = self
+        googleMap.delegate = self
     }
     
 
@@ -93,18 +102,6 @@ class HomeVC: UIViewController {
                  self.mapView.addAnnotation(eachSnap)
             }
 
-        }
-    }
-    
-    
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapView.showsUserLocation = true
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-            
-        } else {
-            locationManager.requestWhenInUseAuthorization()
         }
     }
 
@@ -201,6 +198,11 @@ extension HomeVC:CLLocationManagerDelegate {
 
         let location = locations.last! as CLLocation
         let userLocation:CLLocation = locations[0] as CLLocation
+         googleMap.camera = GMSCameraPosition(target: userLocation.coordinate, zoom: 15,
+                                            bearing: 0, viewingAngle: 0)
+         fetchNearbyPlaces(coordinate: userLocation.coordinate)
+
+      /*
         if(self.isTripAcceptted){
             var span = MKCoordinateSpan()
             span.latitudeDelta = 0.05
@@ -208,6 +210,19 @@ extension HomeVC:CLLocationManagerDelegate {
             let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500)
             //MKCoordinateRegion(center: userLocation.coordinate, span: span)
             self.mapView.setRegion(region, animated: true)
+        } */
+    }
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+            googleMap.isMyLocationEnabled = true
+            googleMap.settings.myLocationButton = true
+
+
+        } else {
+            locationManager.requestWhenInUseAuthorization()
         }
     }
 }
@@ -268,6 +283,65 @@ extension HomeVC:LocationSearchTableDelegate {
             
         }
     }
+
+     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        googleMap.clear()
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
+            places.forEach {
+                let marker = PlaceMarker(place: $0)
+                marker.map = self.googleMap
+
+            }
+            self.locationManager.stopUpdatingLocation()
+        }
+    }
+
+}
+
+extension HomeVC: GMSMapViewDelegate {
+
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+       // reverseGeocodeCoordinate(position.target)
+    }
+
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+       /* addressLabel.lock()
+
+        if (gesture) {
+            mapCenterPinImage.fadeIn(0.25)
+            mapView.selectedMarker = nil
+        } */
+    }
+
+    func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
+        guard let placeMarker = marker as? PlaceMarker else {
+            return nil
+        }
+        guard let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView else {
+            return nil
+        }
+
+        infoView.nameLabel.text = placeMarker.place.name
+         infoView.placePhoto.image = #imageLiteral(resourceName: "driverAnnotation")
+       /* if let photo = placeMarker.place.photo {
+            infoView.placePhoto.image = photo
+        } else {
+            infoView.placePhoto.image = UIImage(named: "generic")
+        } */
+
+        return infoView
+    }
+/*
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        mapCenterPinImage.fadeOut(0.25)
+        return false
+    }
+
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        mapCenterPinImage.fadeIn(0.25)
+        mapView.selectedMarker = nil
+        return false
+    } */
 
 }
 
