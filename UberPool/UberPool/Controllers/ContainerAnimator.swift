@@ -86,7 +86,17 @@ extension ContainerViewController: HomeViewControllerDelegate {
         self.navigationView?.center = CGPoint(x: self.navigationView!.center.x + targetPostion, y: self.navigationView!.center.y)
         let initalFrame = CGRect(x: self.currentViewController.view.frame.origin.x-self.leftMenuOffset, y: 0, width: self.leftMenuOffset, height:(self.leftViewController?.view.frame.size.height)!)
         self.leftViewController?.view.frame = initalFrame
-       
+        targetPostion>0 ? rotateTheButton(clockWise: true):  rotateTheButton(clockWise: false)
+
+    }
+
+    func rotateTheButton(clockWise:Bool) {
+
+        let pi =  clockWise ? CGFloat.pi/140 : -CGFloat.pi/140
+        let radians:Float = atan2f(Float(self.navigationView!.menuButton.transform.b), Float(self.navigationView!.menuButton.transform.a))
+        let con = CGFloat(radians)
+        let final = pi + con
+        self.navigationView?.menuButton.transform = CGAffineTransform(rotationAngle:final)
     }
 
     func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)? = nil) {

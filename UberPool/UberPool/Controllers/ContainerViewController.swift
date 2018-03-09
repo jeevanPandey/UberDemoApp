@@ -159,14 +159,13 @@ extension ContainerViewController : UIGestureRecognizerDelegate {
             }
 
         case .changed:
-
             if let rview = recognizer.view {
                 let translation = recognizer.translation(in: rview)
                 moveTheViewBy(targetPostion: translation.x)
                 print("translattion x: \(translation.x)")
                 recognizer.setTranslation(CGPoint.zero, in: rview)
+               
             }
-
         case .ended:
             if let _ = leftViewController,
                 let rview = recognizer.view {
