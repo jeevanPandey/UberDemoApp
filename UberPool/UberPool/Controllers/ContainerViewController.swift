@@ -72,31 +72,6 @@ class ContainerViewController: UIViewController,SidePanelViewControllerDelegate 
 
     }
 
-   /* func addSearchView() {
-        removeOverlaysAnnotations()
-
-        if let _ = self.customView {
-            return
-        }
-        self.customView = self.loadViewFromNib()
-        self.customView.delegate = self
-        self.customView.mapView = self.mapView
-        customView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(customView)
-        customView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        customView.widthAnchor.constraint(equalToConstant: view.frame.size.width-40).isActive = true
-        customView.heightAnchor.constraint(equalToConstant: self.view.frame.size.height-200).isActive = true
-        anchor =  customView.topAnchor.constraint(equalTo:topLayoutGuide.bottomAnchor, constant: self.view.frame.size.height-10)
-        anchor.isActive = true
-        self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.5, animations: {
-            self.anchor.constant = 180
-            self.view.layoutIfNeeded()
-
-        }) { (iscompleted) in
-
-        }
-    } */
 
     func loadWaitingView() -> MenuWaitScreen {
 
@@ -106,18 +81,11 @@ class ContainerViewController: UIViewController,SidePanelViewControllerDelegate 
         return view
     }
     func addDummyView() {
-        
-       /* self.whiteView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-        self.whiteView?.backgroundColor = UIColor.white
-        let label = UILabel(frame: CGRect(x: (whiteView?.frame.size.width)!/2-80, y: (whiteView?.frame.size.height)!/2, width: 200, height: 50))
-        label.text = "Setting up your moves 🚙🚙 "
-        whiteView?.addSubview(label)
-        self.view.addSubview(whiteView!) */
+
         self.whiteView = loadWaitingView()
         self.whiteView?.frame = CGRect(x: 0, y: 0,width: self.view.bounds.size.width,
                                        height: self.view.bounds.size.height)
         self.view.addSubview(self.whiteView!)
-
     }
     func addNavigationview() {
         
