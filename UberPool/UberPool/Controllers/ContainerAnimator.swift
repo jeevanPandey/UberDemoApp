@@ -39,7 +39,6 @@ extension ContainerViewController: HomeViewControllerDelegate {
 
         let initalFrame = CGRect(x: -centerPanelExpandedOffset, y: 0, width: centerPanelExpandedOffset, height: (self.leftViewController?.view.frame.size.height)!)
         self.leftViewController?.view.frame = initalFrame
-
         view.addSubview((self.leftViewController?.view)!)
         addChildViewController(self.leftViewController!)
         self.leftViewController!.didMove(toParentViewController: self)
@@ -79,6 +78,15 @@ extension ContainerViewController: HomeViewControllerDelegate {
 
         })
 
+    }
+
+    func moveTheViewBy(targetPostion: CGFloat) {
+
+        self.currentViewController.view.center  =   CGPoint(x: self.currentViewController.view.center.x + targetPostion, y: self.currentViewController.view.center.y)
+        self.navigationView?.center = CGPoint(x: self.navigationView!.center.x + targetPostion, y: self.navigationView!.center.y)
+        let initalFrame = CGRect(x: self.currentViewController.view.frame.origin.x-self.leftMenuOffset, y: 0, width: self.leftMenuOffset, height:(self.leftViewController?.view.frame.size.height)!)
+        self.leftViewController?.view.frame = initalFrame
+       
     }
 
     func animateCenterPanelXPosition(targetPosition: CGFloat, completion: ((Bool) -> Void)? = nil) {

@@ -35,6 +35,14 @@ class ContainerViewController: UIViewController,SidePanelViewControllerDelegate 
         self.setupVC()
 
     }
+
+    func addGesture() {
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        if let view =  self.navigationView {
+            view.addGestureRecognizer(panGestureRecognizer)
+        }
+
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -97,6 +105,7 @@ class ContainerViewController: UIViewController,SidePanelViewControllerDelegate 
         self.navigationView = loadNavigation()
         self.navigationView?.menuButton.addTarget(self, action: #selector(toggleLeftPanel), for: .touchUpInside)
         view.addSubview(self.navigationView!)
+        self.addGesture()
     }
     
     func loadNavigation() -> NavigationView {
@@ -130,6 +139,54 @@ extension ContainerViewController:LoginViewControllerDelegate {
     func userAuthenticatedForDriver() {
         self.naviagteToDriverPickerVC()
         
+    }
+}
+
+extension ContainerViewController : UIGestureRecognizerDelegate {
+
+    func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+
+        let gestureIsDraggingFromLeftToRight = (recognizer.velocity(in: view).x > 0)
+
+        switch recognizer.state {
+
+        case .began:
+            if currentState == .bothCollapsed {
+                if gestureIsDraggingFromLeftToRight {
+                    addLeftPanelViewController()
+                }
+                showShadowForCenterViewController(true)
+            }
+
+        case .changed:
+
+            if let rview = recognizer.view {
+                let translation = recognizer.translation(in: rview)
+                // rview.center.x = rview.center.x + recognizer.translation(in: view).x
+                //animateCenterPanelXPosition(targetPosition: rview.center.x)
+                moveTheViewBy(targetPostion: translation.x)
+                print("translattion x: \(translation.x)")
+                recognizer.setTranslation(CGPoint.zero, in: rview)
+            }
+
+        case .ended:
+            if let _ = leftViewController,
+                let rview = recognizer.view {
+                // animate the side panel open or closed based on whether the view
+                // has moved more or less than halfway
+                let hasMovedGreaterThanHalfway = rview.center.x > view.bounds.size.width
+                animateLeftPanel(collapsed: true)
+
+            }
+            /*else if let _ = rightViewController,
+                let rview = recognizer.view {
+                let hasMovedGreaterThanHalfway = rview.center.x < 0
+                animateRightPanel(shouldExpand: hasMovedGreaterThanHalfway)
+            } */
+
+        default:
+            break
+        }
     }
 }
 
