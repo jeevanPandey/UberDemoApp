@@ -162,8 +162,6 @@ extension ContainerViewController : UIGestureRecognizerDelegate {
 
             if let rview = recognizer.view {
                 let translation = recognizer.translation(in: rview)
-                // rview.center.x = rview.center.x + recognizer.translation(in: view).x
-                //animateCenterPanelXPosition(targetPosition: rview.center.x)
                 moveTheViewBy(targetPostion: translation.x)
                 print("translattion x: \(translation.x)")
                 recognizer.setTranslation(CGPoint.zero, in: rview)
@@ -172,17 +170,17 @@ extension ContainerViewController : UIGestureRecognizerDelegate {
         case .ended:
             if let _ = leftViewController,
                 let rview = recognizer.view {
-                // animate the side panel open or closed based on whether the view
-                // has moved more or less than halfway
-                let hasMovedGreaterThanHalfway = rview.center.x > view.bounds.size.width
-                animateLeftPanel(collapsed: true)
+
+                let hasMovedGreaterThanHalfway = rview.center.x  > view.bounds.size.width-100
+                if (hasMovedGreaterThanHalfway) {
+                    animateLeftPanel(collapsed: true)
+                }
+                else {
+                    animateLeftPanel(collapsed: false)
+                }
+
 
             }
-            /*else if let _ = rightViewController,
-                let rview = recognizer.view {
-                let hasMovedGreaterThanHalfway = rview.center.x < 0
-                animateRightPanel(shouldExpand: hasMovedGreaterThanHalfway)
-            } */
 
         default:
             break
