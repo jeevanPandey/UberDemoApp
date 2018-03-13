@@ -59,6 +59,7 @@ class LocationSearchTable: UIView {
 
          let bound = GMSCoordinateBounds(region: mapRegion)
         fetcher?.autocompleteBoundsMode = .bias
+        fetcher?.autocompleteBounds = bound
         fetcher?.sourceTextHasChanged(diestinationText.text!)
 
        /* guard let mapView = mapView,
