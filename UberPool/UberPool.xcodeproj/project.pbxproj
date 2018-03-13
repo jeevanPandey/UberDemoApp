@@ -42,6 +42,7 @@
 		09B2D6561FCE974B00E9CD98 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */; };
 		09B2D6571FCE974B00E9CD98 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6521FCE974B00E9CD98 /* SidePanelViewController.swift */; };
 		09B2D6581FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2D6531FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift */; };
+		09B443AF2057987500927189 /* HomeVCAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B443AE2057987500927189 /* HomeVCAutocomplete.swift */; };
 		09BB9FAE1FFCB69B00DB19EE /* DriverPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */; };
 		09CB129B1FCD7818009DC177 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */; };
 		09D3668C2007700A003C1CA0 /* StoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */; };
@@ -64,7 +65,7 @@
 		0922B5E61FEBC34A00707F0B /* MapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
 		0924F3C61FCD343600CBD4E3 /* UberPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0924F3C91FCD343600CBD4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = ../HomeVC.swift; sourceTree = "<group>"; };
+		0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0924F3D01FCD343700CBD4E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0924F3D31FCD343700CBD4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0924F3D51FCD343700CBD4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		09B2D6521FCE974B00E9CD98 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		09B2D6531FCE974B00E9CD98 /* SidePanelViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewControllerDelegate.swift; sourceTree = "<group>"; };
+		09B443AE2057987500927189 /* HomeVCAutocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCAutocomplete.swift; sourceTree = "<group>"; };
 		09BB9FAD1FFCB69B00DB19EE /* DriverPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverPickerVC.swift; sourceTree = "<group>"; };
 		09CB129A1FCD7818009DC177 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardExtension.swift; sourceTree = "<group>"; };
@@ -203,9 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				096D1DD41FD1373E0016E9AD /* LoginController */,
-				0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */,
-				09AC2404204E60C300B8D991 /* HomeVCTextExtension.swift */,
-				0982D60F1FFE35BA000E0110 /* HomeVCMapExtension.swift */,
+				09B443AD205797E500927189 /* Home */,
 				09D3668B2007700A003C1CA0 /* StoryBoardExtension.swift */,
 				09B2D6501FCE974B00E9CD98 /* HomeViewControllerDelegate.swift */,
 				09B2D6511FCE974B00E9CD98 /* ContainerViewController.swift */,
@@ -216,6 +216,17 @@
 				09439BCD20034E02002EC032 /* CustomNav */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		09B443AD205797E500927189 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0924F3CB1FCD343600CBD4E3 /* HomeVC.swift */,
+				09AC2404204E60C300B8D991 /* HomeVCTextExtension.swift */,
+				0982D60F1FFE35BA000E0110 /* HomeVCMapExtension.swift */,
+				09B443AE2057987500927189 /* HomeVCAutocomplete.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		09CB12991FCD77F1009DC177 /* View */ = {
@@ -378,6 +389,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UberPool/Pods-UberPool-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -440,6 +453,7 @@
 				09B2D6551FCE974B00E9CD98 /* HomeViewControllerDelegate.swift in Sources */,
 				095F1D9A204E763800A8B626 /* ContainerAnimator.swift in Sources */,
 				09DE6FD4205328D500B235D6 /* PlaceMarker.swift in Sources */,
+				09B443AF2057987500927189 /* HomeVCAutocomplete.swift in Sources */,
 				0935893920501BD000D53C80 /* SMRippleView.swift in Sources */,
 				09B2D6571FCE974B00E9CD98 /* SidePanelViewController.swift in Sources */,
 				096D1DD81FD161470016E9AD /* ViewExtension.swift in Sources */,

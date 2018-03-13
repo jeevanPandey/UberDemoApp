@@ -37,6 +37,7 @@ import SwiftyJSON
 
 typealias PlacesCompletion = ([GooglePlace]) -> Void
 typealias PhotoCompletion = (UIImage?) -> Void
+typealias RouteCompletion = (String?) -> Void
 
 class GoogleDataProvider {
   private var photoCache: [String: UIImage] = [:]
@@ -89,7 +90,46 @@ class GoogleDataProvider {
     }
     placesTask?.resume()
   }
-  
+
+    func getPolylineRoute(source: CLLocationCoordinate2D,destination: CLLocationCoordinate2D,completion: @escaping RouteCompletion) -> Void  {
+
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let key = AppConfig.sharedInstance.DIRECTIONKEY
+
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=driving&key=\(key)")!
+
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            else {
+                do {
+                    if let json : [String:Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
+                        guard let routes = json["routes"] as? NSArray else {
+                            return
+                        }
+
+                        if (routes.count > 0) {
+                            let overview_polyline = routes[0] as? NSDictionary
+                            let dictPolyline = overview_polyline?["overview_polyline"] as? NSDictionary
+
+                            let points = dictPolyline?.object(forKey: "points") as? String
+                            DispatchQueue.main.async {
+                                completion(points)
+                            }
+                        }
+                    }
+                }
+                catch {
+                    print("error in JSONSerialization")
+                }
+            }
+        })
+        task.resume()
+    }
+
   
   func fetchPhotoFromReference(_ reference: String, completion: @escaping PhotoCompletion) -> Void {
     if let photo = photoCache[reference] {

@@ -17,6 +17,8 @@ final class AppConfig {
     var userEmail:String?
     var userID:String?
     let APIKEY =  "AIzaSyCxegjFsilwL5KMu1z7U2FoclIsG_HgZcw"
+    let PLACEAPIKEY = "AIzaSyA861JSogN0t1aG1DBdnE8Gr68k4WLAfHI"
+    let DIRECTIONKEY = "AIzaSyCvj7QA5lF0DPJzByvzm-oMZORbYsa7cxI"
     
     private init() {}
     

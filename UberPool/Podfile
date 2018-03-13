@@ -8,6 +8,8 @@ target 'UberPool' do
  pod 'Firebase/Auth'
 pod 'FirebaseDatabase'
 pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'GooglePlacePicker'
 pod 'RevealingSplashView'
 pod 'SwiftyJSON'
 

@@ -69,7 +69,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newCarImage" translatesAutoresizingMaskIntoConstraints="NO" id="qSi-A2-sN0">
-                    <rect key="frame" x="275" y="411" width="100" height="56"/>
+                    <rect key="frame" x="0.0" y="411" width="100" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="cpw-9n-bTr"/>
@@ -79,7 +79,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qSi-A2-sN0" secondAttribute="trailing" id="HoF-Q1-jTH"/>
+                <constraint firstItem="qSi-A2-sN0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0Lo-Db-Q37"/>
                 <constraint firstItem="LOu-Lh-Flf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="NcP-3o-Ww9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qSi-A2-sN0" secondAttribute="bottom" constant="200" id="RqQ-vf-llC"/>
                 <constraint firstItem="LOu-Lh-Flf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="n4p-fO-3lv"/>

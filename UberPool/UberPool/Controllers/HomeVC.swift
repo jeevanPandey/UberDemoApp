@@ -11,7 +11,7 @@ import MapKit
 import RevealingSplashView
 import Firebase
 import GoogleMaps
-
+import GooglePlaces
 
 class HomeVC: UIViewController {
 
@@ -39,6 +39,8 @@ class HomeVC: UIViewController {
     let searchRadius: Double = 1000
     var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
 
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
 
     
     func centerMapOnLocation(location: CLLocation) {
@@ -77,6 +79,25 @@ class HomeVC: UIViewController {
         self.rideCancelBtn.isHidden = true
         self.ButtonView.isHidden = true
         self.startPointText.isUserInteractionEnabled = false
+        destinationText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+       // self.setupSearchView()
+    }
+
+    func setupSearchView() {
+
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+
+      //  let subView = UIView(frame: CGRect(x: 0, y: view.bounds.midY, width: view.bounds.width, height: 45.0))
+
+       // subView.addSubview((searchController?.searchBar)!)
+       // self.view.addSubview(subView)
+        searchController?.searchBar.sizeToFit()
+        searchController?.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        self.present(searchController!, animated: true, completion: nil)
     }
     
     func getCoordinateForDrivers() {
@@ -200,7 +221,7 @@ extension HomeVC:CLLocationManagerDelegate {
         let userLocation:CLLocation = locations[0] as CLLocation
          googleMap.camera = GMSCameraPosition(target: userLocation.coordinate, zoom: 15,
                                             bearing: 0, viewingAngle: 0)
-         fetchNearbyPlaces(coordinate: userLocation.coordinate)
+        // fetchNearbyPlaces(coordinate: userLocation.coordinate)
 
       /*
         if(self.isTripAcceptted){
@@ -236,6 +257,58 @@ extension HomeVC:LocationSearchTableDelegate {
                 self.setupUserLocation(mapitem: item)
             }
         }
+    }
+
+    func didSelectPredictionItem(item: GMSAutocompletePrediction) {
+
+        print("items is \(item)")
+
+        removeCustomView { (isComplted) in
+            if(isComplted) {
+
+               self.setupGoogleOvelays(item: item)
+                
+            }
+        }
+    }
+
+    func setupGoogleOvelays(item:GMSAutocompletePrediction){
+        let client =  GMSPlacesClient()
+        client.lookUpPlaceID(item.placeID!) { (fetchPlace, error) in
+
+            if(error == nil) {
+                print("place is \(fetchPlace)")
+              /*  self.getPolylineRoute(from:self.locationManager.location!.coordinate,
+                                 to:fetchPlace!.coordinate ) */
+
+                self.setupPolylines(origin: self.locationManager.location!.coordinate, destination: fetchPlace!.coordinate)
+
+            }
+            else {
+                print("error \(error) ")
+            }
+        }
+    }
+
+    func setupPolylines(origin:CLLocationCoordinate2D,destination:CLLocationCoordinate2D) {
+
+        googleMap.clear()
+        dataProvider.getPolylineRoute(source: origin, destination: destination) { (pathString) in
+            self.addMarkers(originRoute: origin, destinationCoordinate: destination)
+            self.showPath(polyStr: pathString!)
+            let bounds = GMSCoordinateBounds(coordinate: origin, coordinate: destination)
+            let update = GMSCameraUpdate.fit(bounds, with: UIEdgeInsetsMake(170, 30, 30, 30))
+            self.googleMap!.moveCamera(update)
+        }
+
+       /* dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
+            places.forEach {
+                let marker = PlaceMarker(place: $0)
+                marker.map = self.googleMap
+
+            }
+            self.locationManager.stopUpdatingLocation()
+        }*/
     }
 
     func removeCustomView(completionHandler:@escaping (Bool) -> ())  {
@@ -294,6 +367,70 @@ extension HomeVC:LocationSearchTableDelegate {
             }
             self.locationManager.stopUpdatingLocation()
         }
+    }
+
+    func getPolylineRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D){
+
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let key = AppConfig.sharedInstance.DIRECTIONKEY
+
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=driving&key=\(key)")!
+
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            else {
+                do {
+                    if let json : [String:Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
+                        guard let routes = json["routes"] as? NSArray else {
+                            return
+                        }
+
+                        if (routes.count > 0) {
+                            let overview_polyline = routes[0] as? NSDictionary
+                            let dictPolyline = overview_polyline?["overview_polyline"] as? NSDictionary
+
+                            let points = dictPolyline?.object(forKey: "points") as? String
+
+                            DispatchQueue.main.async {
+                                self.addMarkers(originRoute: source, destinationCoordinate: destination)
+                                self.showPath(polyStr: points!)
+                                let bounds = GMSCoordinateBounds(coordinate: source, coordinate: destination)
+                                let update = GMSCameraUpdate.fit(bounds, with: UIEdgeInsetsMake(170, 30, 30, 30))
+                                self.googleMap!.moveCamera(update)
+                            }
+                        }
+                    }
+                }
+                catch {
+                    print("error in JSONSerialization")
+                }
+            }
+        })
+        task.resume()
+    }
+
+    func showPath(polyStr :String){
+        let path = GMSPath(fromEncodedPath: polyStr)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 5.0
+        polyline.strokeColor = UIColor.blue
+        polyline.map = googleMap
+
+    }
+
+    func addMarkers(originRoute:CLLocationCoordinate2D,destinationCoordinate:CLLocationCoordinate2D) {
+
+        let markerorgin = GMSMarker(position: originRoute)
+        markerorgin.map = self.googleMap
+        markerorgin.icon = GMSMarker.markerImage(with: UIColor.purple)
+        let markerDest = GMSMarker(position: destinationCoordinate)
+        markerDest.map = self.googleMap
+        markerDest.icon = GMSMarker.markerImage(with: UIColor.red)
+
     }
 
 }

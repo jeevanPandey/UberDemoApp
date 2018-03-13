@@ -110,7 +110,7 @@ extension UIView {
         self.layer.add(bounceAnimation, forKey: "bounce") */
         let animation = CAKeyframeAnimation()
         animation.keyPath = "position.x"
-        animation.values = [0,self.superview!.frame.width-self.frame.width,0]
+        animation.values = [self.superview!.frame.width-self.frame.width,0,self.superview!.frame.width-self.frame.width]
         animation.keyTimes = [0, 0.5, 1]
         animation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)]
         animation.duration = 2
@@ -170,6 +170,27 @@ extension UIView {
         let views = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
         return views?.first as? UIView
     }
+}
 
+extension UIView
+{
+    func copyView<T: UIView>() -> T {
+        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
+    }
+}
 
+extension UISearchBar {
+
+    func customizeBarWithPlaceholder(placeholder place:String) {
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftViewMode = .never
+        UISearchBar.appearance().searchTextPositionAdjustment = UIOffsetMake(0, 0)
+        self.barTintColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
+        self.isTranslucent = true
+        self.showsCancelButton = false
+        self.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        let textFieldInsideSearchBar = self.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.black
+        textFieldInsideSearchBar?.placeholder = place
+    }
 }

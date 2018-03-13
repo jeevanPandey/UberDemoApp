@@ -13,16 +13,25 @@ extension HomeVC:UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if(!textField.text!.isEmpty){
+
            self.ButtonView.isHidden = false
         }
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+
+    }
+
+    func textFieldDidChange(_ textField: UITextField) {
+
         if(!textField.text!.isEmpty){
-            addSearchView()
-            customView.updateSearchResultsForSearchController(diestinationText: destinationText)
+             addSearchView()
+            customView.updateSearchResultsForSearchController(diestinationText: destinationText,
+                                                              mapRegion: self.googleMap.projection.visibleRegion())
+            // customView.updateSearchResultsForSearchController(diestinationText: destinationText)
         }
     }
+
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
