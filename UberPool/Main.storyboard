@@ -284,7 +284,7 @@
                                     <constraint firstItem="mhd-SL-xid" firstAttribute="top" secondItem="mVM-6R-MG6" secondAttribute="top" id="tsa-Go-yHL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0X-Ue-WmR" userLabel="CenterButton">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0X-Ue-WmR" userLabel="CenterButton">
                                 <rect key="frame" x="279" y="507" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="JbZ-VG-VVk"/>

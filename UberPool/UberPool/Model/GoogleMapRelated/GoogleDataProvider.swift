@@ -93,13 +93,13 @@ class GoogleDataProvider {
 
     func getPolylineRoute(source: CLLocationCoordinate2D,destination: CLLocationCoordinate2D,completion: @escaping RouteCompletion) -> Void  {
 
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
         let key = AppConfig.sharedInstance.DIRECTIONKEY
-
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=driving&key=\(key)")!
 
-        let task = session.dataTask(with: url, completionHandler: {
+        if let task = placesTask, task.taskIdentifier > 0 && task.state == .running {
+            task.cancel()
+        }
+        placesTask =  session.dataTask(with: url, completionHandler: {
             (data, response, error) in
             if error != nil {
                 print(error!.localizedDescription)
@@ -114,7 +114,6 @@ class GoogleDataProvider {
                         if (routes.count > 0) {
                             let overview_polyline = routes[0] as? NSDictionary
                             let dictPolyline = overview_polyline?["overview_polyline"] as? NSDictionary
-
                             let points = dictPolyline?.object(forKey: "points") as? String
                             DispatchQueue.main.async {
                                 completion(points)
@@ -127,7 +126,7 @@ class GoogleDataProvider {
                 }
             }
         })
-        task.resume()
+        placesTask?.resume()
     }
 
   

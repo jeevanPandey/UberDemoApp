@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import CoreLocation
 import MapKit
+import GoogleMaps
 
 class LocationService {
     
@@ -105,6 +106,36 @@ class LocationService {
             
             print("error ")
         }
+    }
+
+    func getDriverMarkers(googleMap:GMSMapView,completion: @escaping (_ result: [DriverMarker])->Void) {
+
+        googleMap.clear()
+        var driverMarkers : [DriverMarker] = []
+        DataService.instace.REF_DRIVERS.observeSingleEvent(of: .value, with: { (snapshot) in
+
+            if let snaps = snapshot.children.allObjects as? [DataSnapshot] {
+
+                for eachSnap in snaps {
+
+                    if let isEnabled:Bool =  eachSnap.childSnapshot(forPath: "isPickUpModeEnabled").value as? Bool,isEnabled == true, let eachDict = eachSnap.childSnapshot(forPath: "coordinate").value as? NSArray  {
+
+                        let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: eachDict[0] as! CLLocationDegrees, longitude: eachDict[1] as! CLLocationDegrees)
+
+                        let eachmarker:DriverMarker = DriverMarker(coordinate: coordinate, with: eachSnap.key)
+
+                        eachmarker.map = googleMap
+                       // driverMarkers.append(eachmarker)
+                    }
+                }
+               completion(driverMarkers)
+            }
+
+        }) { (error) in
+
+            print("error ")
+        }
+
     }
     
     func updateTripsOnRequest() {

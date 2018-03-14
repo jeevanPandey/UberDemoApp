@@ -24,11 +24,11 @@ extension HomeVC:UITextFieldDelegate {
 
     func textFieldDidChange(_ textField: UITextField) {
 
-        if(!textField.text!.isEmpty){
+        if(textField.text!.count > 3) {
              addSearchView()
             customView.updateSearchResultsForSearchController(diestinationText: destinationText,
                                                               mapRegion: self.googleMap.projection.visibleRegion())
-            // customView.updateSearchResultsForSearchController(diestinationText: destinationText)
+
         }
     }
 
@@ -37,12 +37,16 @@ extension HomeVC:UITextFieldDelegate {
 
         destinationText.resignFirstResponder()
         startPointText.resignFirstResponder()
+
         return true
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        removeOverlaysAnnotations()
+       // removeOverlaysAnnotations()
+        // center map on user location
+        googleMap.clear()
         self.ButtonView.isHidden = true
+        self.getCoordinateForDrivers()
         return  true
     }
 

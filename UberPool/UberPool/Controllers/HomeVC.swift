@@ -80,26 +80,8 @@ class HomeVC: UIViewController {
         self.ButtonView.isHidden = true
         self.startPointText.isUserInteractionEnabled = false
         destinationText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-       // self.setupSearchView()
     }
 
-    func setupSearchView() {
-
-        resultsViewController = GMSAutocompleteResultsViewController()
-        resultsViewController?.delegate = self
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
-
-      //  let subView = UIView(frame: CGRect(x: 0, y: view.bounds.midY, width: view.bounds.width, height: 45.0))
-
-       // subView.addSubview((searchController?.searchBar)!)
-       // self.view.addSubview(subView)
-        searchController?.searchBar.sizeToFit()
-        searchController?.hidesNavigationBarDuringPresentation = false
-        definesPresentationContext = true
-        self.present(searchController!, animated: true, completion: nil)
-    }
-    
     func getCoordinateForDrivers() {
         if isTripAcceptted {return}
 
@@ -108,21 +90,12 @@ class HomeVC: UIViewController {
            self.setupAnnoations()
         })
     }
-    
+
     func setupAnnoations() {
 
-        var allAnn:[DriverAnnotation] = []
-        
-        for case let driverAnn as DriverAnnotation in self.mapView.annotations {
-            allAnn.append(driverAnn)
-        }
-        LocationService.instance.queryDriversLocation(mapView: self.mapView) { (snaps) in
-            
-            for eachSnap in snaps {
-                
-                 self.mapView.addAnnotation(eachSnap)
-            }
+        LocationService.instance.getDriverMarkers(googleMap: self.googleMap) { (allAnn) in
 
+            print("annotation setup completed")
         }
     }
 
@@ -219,8 +192,8 @@ extension HomeVC:CLLocationManagerDelegate {
 
         let location = locations.last! as CLLocation
         let userLocation:CLLocation = locations[0] as CLLocation
-         googleMap.camera = GMSCameraPosition(target: userLocation.coordinate, zoom: 15,
-                                            bearing: 0, viewingAngle: 0)
+        googleMap.camera = GMSCameraPosition.camera(withTarget: userLocation.coordinate, zoom: 14)
+         self.getCoordinateForDrivers()
         // fetchNearbyPlaces(coordinate: userLocation.coordinate)
 
       /*
@@ -278,9 +251,6 @@ extension HomeVC:LocationSearchTableDelegate {
 
             if(error == nil) {
                 print("place is \(fetchPlace)")
-              /*  self.getPolylineRoute(from:self.locationManager.location!.coordinate,
-                                 to:fetchPlace!.coordinate ) */
-
                 self.setupPolylines(origin: self.locationManager.location!.coordinate, destination: fetchPlace!.coordinate)
 
             }
@@ -300,15 +270,6 @@ extension HomeVC:LocationSearchTableDelegate {
             let update = GMSCameraUpdate.fit(bounds, with: UIEdgeInsetsMake(170, 30, 30, 30))
             self.googleMap!.moveCamera(update)
         }
-
-       /* dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
-            places.forEach {
-                let marker = PlaceMarker(place: $0)
-                marker.map = self.googleMap
-
-            }
-            self.locationManager.stopUpdatingLocation()
-        }*/
     }
 
     func removeCustomView(completionHandler:@escaping (Bool) -> ())  {
@@ -335,7 +296,29 @@ extension HomeVC:LocationSearchTableDelegate {
             }
         }
     }
-    
+
+    func setupUserLocation(item: GMSAutocompletePrediction) {
+
+        if  let curreLocation = locationManager.location,let userId = Auth.auth().currentUser?.uid {
+
+            self.removeDestinationAnnotation()
+
+            let client =  GMSPlacesClient()
+            client.lookUpPlaceID(item.placeID!) { (fetchPlace, error) in
+
+                if(error == nil) {
+                    print("place is \(fetchPlace)")
+                    let tripCordinate = fetchPlace!.coordinate
+                     LocationService.instance.saveLocationTripOnFB(locationCoordinate: tripCordinate, forUserId: userId)
+                    self.setupPolylines(origin: curreLocation.coordinate, destination: fetchPlace!.coordinate)
+                }
+                else {
+                    print("error \(error) ")
+                }
+            }
+
+        }
+    }
     func setupUserLocation(mapitem:MKMapItem) {
         
         self.destinationText.text = mapitem.name
@@ -353,65 +336,12 @@ extension HomeVC:LocationSearchTableDelegate {
             self.mapView.showAnnotations([userAnnoation,destinationAnn], animated: true)
             let sourceMapItem:MKMapItem = MKMapItem.forCurrentLocation()
             self.mapView.setupDirection(sourceMapItem: sourceMapItem, destinationMapItem: mapitem)
+
+            
             
         }
     }
 
-     func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-        googleMap.clear()
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
-            places.forEach {
-                let marker = PlaceMarker(place: $0)
-                marker.map = self.googleMap
-
-            }
-            self.locationManager.stopUpdatingLocation()
-        }
-    }
-
-    func getPolylineRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D){
-
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let key = AppConfig.sharedInstance.DIRECTIONKEY
-
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=driving&key=\(key)")!
-
-        let task = session.dataTask(with: url, completionHandler: {
-            (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            else {
-                do {
-                    if let json : [String:Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
-                        guard let routes = json["routes"] as? NSArray else {
-                            return
-                        }
-
-                        if (routes.count > 0) {
-                            let overview_polyline = routes[0] as? NSDictionary
-                            let dictPolyline = overview_polyline?["overview_polyline"] as? NSDictionary
-
-                            let points = dictPolyline?.object(forKey: "points") as? String
-
-                            DispatchQueue.main.async {
-                                self.addMarkers(originRoute: source, destinationCoordinate: destination)
-                                self.showPath(polyStr: points!)
-                                let bounds = GMSCoordinateBounds(coordinate: source, coordinate: destination)
-                                let update = GMSCameraUpdate.fit(bounds, with: UIEdgeInsetsMake(170, 30, 30, 30))
-                                self.googleMap!.moveCamera(update)
-                            }
-                        }
-                    }
-                }
-                catch {
-                    print("error in JSONSerialization")
-                }
-            }
-        })
-        task.resume()
-    }
 
     func showPath(polyStr :String){
         let path = GMSPath(fromEncodedPath: polyStr)
@@ -426,10 +356,12 @@ extension HomeVC:LocationSearchTableDelegate {
 
         let markerorgin = GMSMarker(position: originRoute)
         markerorgin.map = self.googleMap
-        markerorgin.icon = GMSMarker.markerImage(with: UIColor.purple)
+        markerorgin.icon = #imageLiteral(resourceName: "currentLocationAnnotation") //GMSMarker.markerImage(with: UIColor.purple)
+        markerorgin.iconView?.animateAnnotationView()
+        //markerorgin.view.animateAnnotationView()
         let markerDest = GMSMarker(position: destinationCoordinate)
         markerDest.map = self.googleMap
-        markerDest.icon = GMSMarker.markerImage(with: UIColor.red)
+        markerDest.icon = #imageLiteral(resourceName: "destinationAnnotation") //GMSMarker.markerImage(with: UIColor.red)
 
     }
 
@@ -439,6 +371,7 @@ extension HomeVC: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
        // reverseGeocodeCoordinate(position.target)
+
     }
 
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
